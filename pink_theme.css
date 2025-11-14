@@ -1,0 +1,330 @@
+/* 注入本地字体和设置字体颜色 */
+@font-face {
+  font-family: 'QuanLaiTi';
+  src: url('file:///F:/Ludy/OneDrive%20-%20MSFT/98%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%AD%97%E4%BD%93/%E5%85%A8%E6%BF%91%E4%BD%93-Regular.woff2') format('woff2'),
+       url('file:///F:/Ludy/OneDrive%20-%20MSFT/98%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%AD%97%E4%BD%93/%E5%85%A8%E6%BF%91%E4%BD%93-Regular.woff') format('woff'),
+       url('file:///F:/Ludy/OneDrive%20-%20MSFT/98%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%AD%97%E4%BD%93/%E5%85%A8%E6%BF%91%E4%BD%93-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  font-family: 'QuanLaiTi', sans-serif !important;
+  color: var(--color-dark-primary) !important;
+}
+body, h1, h2, h3, p, div, span {
+  font-family: 'QuanLaiTi', serif !important;
+  color: var(--color-dark-primary) !important;
+}
+
+/* ===== 颜色变量定义 ===== */
+/* 从深到浅组织，方便后期统一调整 */
+:root {
+    /* 深色系 */
+    --color-dark-primary: #880e4f !important;     /* 深粉色 - 主要文字颜色 */
+    --color-dark-secondary: #e02388 !important;   /* 中等深粉色 - 滚动条滑块 */
+    
+    /* 主色系 */
+    --color-primary: #ec407a !important;         /* 主粉色 - 按钮、边框、激活状态 */
+    --color-primary-light: #f48fb1 !important;    /* 浅主粉色 - 边框、悬停效果 */
+    
+    /* 浅色系 */
+    --color-light-primary: #f8bbd9 !important;    /* 浅粉色 - 选中状态背景 */
+    --color-light-secondary: #fce4ec !important;  /* 更浅粉色 - 输入框、卡片背景 */
+    --color-light-tertiary: #fdf0ed !important;   /* 最浅粉色 - 整体背景 */
+    --color-light-quaternary: #FFE4E8 !important; /* 极浅粉色 - 对话框、列表背景 */
+    
+    /* 透明效果 */
+    --color-primary-alpha-70: rgba(233, 30, 99, 0.7) !important;   /* 70%透明度主色 */
+    --color-primary-alpha-30: rgba(236, 64, 122, 0.3) !important;   /* 30%透明度主色 */
+    --color-primary-alpha-20: rgba(233, 30, 99, 0.2) !important;   /* 20%透明度主色 */
+    --color-primary-alpha-10: rgba(236, 64, 122, 0.1) !important;   /* 10%透明度主色 */
+    --color-primary-alpha-4: rgba(0, 122, 255, 0.04) !important;   /* 4%透明度蓝色（用于首页节点） */
+    --color-light-alpha-30: rgba(248, 187, 217, 0.3) !important;   /* 30%透明度浅色 */
+    
+    /* 特殊颜色 */
+    --color-transparent: transparent !important;   /* 透明色 */
+    
+    /* 基础样式 */
+    --background-color: var(--color-light-tertiary) !important;
+    --window-border-color: var(--color-primary-light) !important;
+    --border: var(--color-primary-light) !important;
+    --scroller-color: var(--color-primary-alpha-70) !important;
+    --scrollbar-bg: var(--color-light-secondary) !important;
+    --scrollbar-thumb: var(--color-dark-secondary) !important;
+    --background-color-alpha: var(--color-primary-alpha-20) !important;
+}
+
+/* 输入框样式 */
+input, textarea {
+    color: var(--color-dark-primary) !important;
+    background-color: var(--color-light-secondary) !important;
+    border-color: var(--color-primary-light) !important;
+}
+/* 左面板上面板 */
+.layout-content {
+    background-color: var(--color-light-secondary)  ;
+}
+/* 图标*/
+.css-q7mezt path {
+  fill: var(--color-dark-primary);
+}
+/* 标题Clash Verge */
+svg#layout1 {
+    fill: var(--color-dark-primary) !important;
+}
+/* 设置：列表背景 */
+ul.MuiList-root.MuiList-padding.css-1wduhak {
+    background-color: var(--color-light-quaternary);
+}
+/* 切换按钮 */
+.MuiSwitch-track {
+    background-color: var(--color-dark-primary) !important;
+}
+.MuiSwitch-root .Mui-checked + .MuiSwitch-track {
+    background-color: var(--color-primary) !important;
+}
+.MuiSwitch-thumb {
+    color: var(--color-light-tertiary) !important; /* 主要按钮颜色 */
+}
+/* 下拉列表背景 */
+ul[id^="_r_"] {
+    background: var(--color-light-tertiary) !important; 
+}
+/* 对话框背景 */
+.MuiPaper-root.MuiDialog-paper  {
+    background-color: var(--color-light-quaternary) !important;
+}
+/* 按钮组整体边框颜色 */
+.MuiButtonGroup-groupedOutlined {
+    border-color: var(--color-primary-light) !important;
+}
+.MuiButton-contained.MuiButton-containedPrimary {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-light-tertiary) !important;
+}
+/* 轮廓按钮样式 */
+.MuiButton-outlined.MuiButton-outlinedPrimary {
+    border: 1px solid var(--color-primary-light) !important;
+    color: var(--color-primary) !important;
+}
+.MuiButton-outlinedPrimary:hover {
+    border-color: var(--color-primary) !important;
+    background-color: var(--color-primary-alpha-10) !important;
+}
+/* 编辑器整体容器 */
+.react-monaco-editor-container,
+.monaco-editor,
+.monaco-editor .monaco-editor-background,
+.monaco-editor .lines-content,
+.MuiBox-root.css-1g4yje1,
+.MuiPaper-root,
+.MuiTableContainer-root,
+.MuiTable-root,
+.MuiTableBody-root,
+.MuiTableRow-root,
+.MuiTableCell-body,
+.MuiTablePagination-root,
+.MuiToolbar-root {
+    background-color: var(--color-light-tertiary) !important;
+}
+.monaco-editor .margin-view-overlays {
+    background-color: var(--color-light-tertiary) !important;
+}
+.MuiButton-containedSuccess {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-light-secondary) !important;
+}
+/* 选项卡指示线颜色 */
+.MuiTabs-indicator {
+    background-color: var(--color-primary) !important;
+}
+/* 警告框背景和文字颜色 */
+.MuiAlert-root {
+    background-color: var(--color-dark-primary) !important;
+}
+.MuiAlert-message {
+    color: var(--color-light-secondary) !important;
+}
+/* 首页 组 */
+.MuiBox-root.css-23cvz,
+.MuiBox-root.css-rbmxes,
+.MuiBox-root.css-14zl6yh,
+.MuiBox-root.css-1frdjpe,
+.MuiBox-root.css-1ofqig9 {
+    background-color: var(--color-light-quaternary) !important;
+}
+
+.MuiPaper-root {
+    background-color: var(--color-light-quaternary) !important;
+    border: 1px solid var(--color-primary) !important;
+}
+/* 选中按钮样式 */
+.MuiPaper-elevation2 {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+/* 选中按钮的文字和图标 */
+.MuiPaper-elevation2 .MuiTypography-body2,
+.MuiPaper-elevation2 .MuiSvgIcon-root {
+    color: var(--color-light-secondary) !important;
+}
+.MuiPaper-elevation2 .MuiSvgIcon-root path {
+    fill: var(--color-light-secondary) !important;
+}
+/* 悬停效果 */
+.MuiPaper-elevation0:hover {
+    background-color: var(--color-primary-alpha-30) !important;
+}
+/* 未选中状态的按钮 */
+.MuiPaper-elevation0 {
+    background-color: var(--color-light-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+/* 按钮分隔线 */
+.MuiStack-root .MuiPaper-root:not(:last-child)::after {
+    background-color: var(--color-primary) !important;
+}
+/* 代理模式描述文字 */
+.css-1g7xoiq + .MuiBox-root .MuiTypography-caption,
+/* 网络设置描述文字 */
+.css-1k84c6z + .MuiBox-root .MuiTypography-caption {
+    background: var(--color-light-tertiary) !important;
+    border: 1px solid var(--color-primary) !important;
+}
+/*  Chip组件 小按钮 */
+/* 成功状态 Chip 组件 */
+.MuiChip-colorSuccess,
+.MuiChip-filledSuccess {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+/* Chip 标签文字颜色 激活 和 默认 */
+.MuiChip-label {
+    color: var(--color-light-tertiary) !important;
+}
+.MuiChip-colorDefault .MuiChip-label,
+.MuiChip-filledDefault .MuiChip-label {
+    color: var(--color-dark-primary) !important;
+}
+/* Chip图标颜色 - 针对 path 元素 */
+.MuiChip-colorSuccess .MuiSvgIcon-root path,
+.MuiChip-filledSuccess .MuiSvgIcon-root path,
+.MuiChip-iconColorSuccess .MuiSvgIcon-root path {
+    fill: var(--color-light-tertiary) !important;
+}
+/* 主页：所有卡片背景 */
+.MuiGrid-grid-xs-4 .MuiPaper-root {
+    background-color: var(--color-light-secondary) !important;
+    border: 1px solid var(--color-primary) !important;
+    border-radius: 8px !important;
+}
+/* 首页、左侧面板图表容器  */
+.css-15emwx2 {
+    background-color: var(--color-light-secondary) !important;
+    border: 1px solid var(--color-primary) !important;
+}
+.the-traffic .css-79elbk {
+    background: var(--color-light-secondary) !important;
+}
+/* 图标容器背景全透明 */
+.css-1f9dk5k,
+.css-1kl0a0c,
+.css-y9p1lb,
+.css-ehj8cx,
+.css-32g6gd,
+.css-9j8v3 {
+    background-color: var(--color-transparent) !important;
+}
+/* 首页当前节点第一行*/
+.css-6yc7vd {
+    background-color: var(--color-primary-alpha-4) !important;
+}
+/* 代理：选中状态的列表项 */
+.MuiListItemButton-root.Mui-selected {
+    background-color: var(--color-light-primary) !important;
+    border: 1px solid var(--color-primary) !important;
+    border-left: 4px solid var(--color-primary) !important; /* 左侧指示条 */
+}
+/* 代理：未选中状态的列表项 */
+.MuiListItemButton-root:not(.Mui-selected) {
+    background-color: var(--color-light-secondary) !important;
+    border-left: 4px solid var(--color-transparent) !important; /* 保持对齐 */
+}
+/* 订阅：选中状态的卡片 */
+.css-1rgmi2n { /* 选中状态 */
+    border-left: 4px solid var(--color-primary) !important; /* 左侧粉色竖条 */
+    background-color: var(--color-light-primary) !important; /* 统一背景色 */
+}
+/* 订阅：未选中状态的卡片 */
+.css-1ow8u3y { /* 未选中状态 */
+    border-left: 4px solid var(--color-transparent) !important; /* 透明竖条保持对齐 */
+    background-color: var(--color-light-secondary) !important; /* 统一背景色 */
+}
+/* 订阅：卡片进度条背景轨道 */
+.MuiLinearProgress-root {
+    background-color: var(--color-light-alpha-30) !important; /* 浅粉色半透明 */
+    height: 6px !important;
+    border-radius: 3px !important;
+    margin-top: 8px !important;
+}
+
+/* 订阅：卡片进度条填充部分 */
+.MuiLinearProgress-bar {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-light-primary)) !important; /* 粉色渐变 */
+    border-radius: 3px !important;
+}
+/* 订阅：Merge 和 Script Chip 组件 */
+.MuiChip-outlinedPrimary {
+    background: var(--color-primary) !important;
+    border: 1px solid var(--color-light-primary) !important;
+    color: var(--color-light-primary) !important;
+}
+/* === 连接、规则、日志 顶部输入框===  */
+/* 输入框及右侧按钮 */
+.css-k008qs {
+    background: var(--color-light-secondary) !important;
+    border-top: 2.5px solid var(--color-light-secondary) !important; /* 修补上方白条 */
+}
+/* 日志下拉框 */
+.css-1ugkueq {
+    background: var(--color-light-secondary) !important;
+}
+.css-ad0ese,
+.css-1ngg3mf .MuiInputBase-root {
+    background: var(--color-light-secondary) !important; /* 修补右侧白条 */
+    padding-right: 1px !important;
+}
+/* 右侧按钮 悬浮提示框 */
+.MuiTooltip-tooltip {
+    background: var(--color-primary) !important;
+    color: var(--color-light-primary) !important;
+    border: 1px solid var(--color-primary) !important;
+}
+/* 下拉、输入框悬浮状态边框色 */
+.css-ad0ese:hover .css-5v2ak0,
+.css-1ugkueq:hover .css-5v2ak0 {
+    border-color: var(--color-dark-primary) !important;
+}
+/* 下拉输入框聚焦状态（点击输入时）边框色 */
+.css-ad0ese.Mui-focused .css-5v2ak0,
+.css-1ugkueq.Mui-focused .css-5v2ak0 {
+    border-color: var(--color-primary) !important;
+    border-width: 2px !important;
+}
+/* 连接 表格标题 */
+.MuiDataGrid-columnHeader {
+    background: var(--color-light-primary) !important;
+}
+/* 连接表格内容 */
+.MuiDataGrid-row {
+    background: var(--color-light-tertiary) !important;
+}
+/* 订阅复制按钮 */
+.css-byahjg {
+    background: var(--color-light-secondary) !important;
+    border: 2.5px solid var(--color-light-secondary) !important; /* 修补上方白条 */
+    border-radius: 0px !important;
+}
