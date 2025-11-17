@@ -1,13 +1,20 @@
-/* 注入本地字体和设置字体颜色 */
+/* Win 注入本地字体和设置字体颜色 */
 @font-face {
   font-family: 'QuanLaiTi';
-  src: url('file:///F:/Ludy/OneDrive%20-%20MSFT/98%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%AD%97%E4%BD%93/%E5%85%A8%E6%BF%91%E4%BD%93-Regular.woff2') format('woff2'),
-       url('file:///F:/Ludy/OneDrive%20-%20MSFT/98%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%AD%97%E4%BD%93/%E5%85%A8%E6%BF%91%E4%BD%93-Regular.woff') format('woff'),
-       url('file:///F:/Ludy/OneDrive%20-%20MSFT/98%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%AD%97%E4%BD%93/%E5%85%A8%E6%BF%91%E4%BD%93-Regular.ttf') format('truetype');
+  src: url('file:///F:/Ludy/OneDrive%20-%20MSFT/98%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%AD%97%E4%BD%93/%E5%85%A8%E6%BF%91%E4%BD%93-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
+/* ===== 自定义字体（MacOS 提前安装 字体册名称） ===== */
+/* * {
+  font-family: "全濑体", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: var(--color-dark-primary) !important;
+}
+body, h1, h2, h3, p, div, span {
+  font-family: "全濑体", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: var(--color-dark-primary) !important;
+} */
 * {
   font-family: 'QuanLaiTi', sans-serif !important;
   color: var(--color-dark-primary) !important;
