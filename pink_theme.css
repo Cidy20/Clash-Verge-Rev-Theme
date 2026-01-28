@@ -1,19 +1,10 @@
-/* Win 注入本地字体 */
-@font-face {
-  font-family: 'QuanLaiTi';
-  src: url('file:///F:/Ludy/OneDrive%20-%20MSFT/98%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E5%AD%97%E4%BD%93/%E5%85%A8%E6%BF%91%E4%BD%93-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-/* MacOS 注入本地字体(提前安装字体册) */
+/* 注入本地字体(Mac/Win提前安装字体册) */
 @font-face {
   font-family: 'QuanLaiTi';
   /* 依次为：字体册名称、标识符-唯一名称-前部分、详细信息-位置-名称部分（不含.ttf） */
   src: local('全濑体'), local('全濑体 Regular'), local('全濑体-Regular');
 }
 
-/* 字体变量(上面二选一) */
 * {
   font-family: 'QuanLaiTi', sans-serif !important;
   color: var(--color-dark-primary) !important;
